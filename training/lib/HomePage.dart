@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training/Tambah.dart';
+import 'package:training/daftar.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -18,17 +19,35 @@ class Homepage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('aplikasi ini untuk mengingat data')],
+          children: [
+            Text('Aplikasi ini untuk mengingat data'),
+            SizedBox(height: 30),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+              ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Tambah();
+                }));
+              },
+              child: Text('Tambah Data',style: TextStyle(color: Colors.white),),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+              ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Daftar();
+                }));
+              },
+              child: Text('Lihat Data',style: TextStyle(color: Colors.white),),
+            ),
+          ],
         ),
       ),
-      floatingActionButton:FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Tambah();
-            }));
-          },
-          child: Icon(Icons.add)
-          ),          
     );
   }
 }
